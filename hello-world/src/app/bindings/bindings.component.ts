@@ -28,6 +28,10 @@ import { Component, OnInit } from '@angular/core';
               <button (click)="onTemplateReferanceVariable(myInput.value)">
                   Template referance variable
               </button>
+
+              <h1>Two way data binding</h1>
+              <input [(ngModel)]="name" type="text"/>
+              {{name}}
               `,
   styles: [`
   .text-success {
@@ -56,6 +60,7 @@ export class BindingsComponent implements OnInit {
     fontStyle : "Italic" 
   }
   public greeting = "";
+  public name = "";
   constructor() { }
 
   ngOnInit(): void {
