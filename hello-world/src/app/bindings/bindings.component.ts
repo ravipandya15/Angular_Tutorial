@@ -17,6 +17,11 @@ import { Component, OnInit } from '@angular/core';
               <h2 [style.color]= "'orange'">Style Binding 2</h2>
               <h2 [style.color]= "hasError ? 'red' : 'orange'">Style Binding 3</h2>
               <h2 [ngStyle]= "styleClasses">Style Binding 4</h2>
+
+              <h1>Event Binding</h1>
+              <button (click)="onClick($event)">Greet</button>
+              <button (click)="greeting = 'Welcome from Greet 2'">Greet 2</button>
+              {{greeting}}
               `,
   styles: [`
   .text-success {
@@ -44,9 +49,15 @@ export class BindingsComponent implements OnInit {
     color : "purple",
     fontStyle : "Italic" 
   }
+  public greeting = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(event : any){
+    console.log("Welcome to Angular Tutorial")
+    this.greeting = "Event is " + event.type + " Event."
   }
 
 }
