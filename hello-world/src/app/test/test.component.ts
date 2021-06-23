@@ -9,20 +9,44 @@ import { Component, OnInit } from '@angular/core';
   // 2 ways for template 1. inline template 2. templateUrl
   // templateUrl: './test.component.html',
   // for multiple line, use backtick instead of single quotes
-  template: '<div>Hello from inline template</div>',
+  template: `<div>
+                
+                <h1>things which we can dp with interpolation</h1>
+                Hello {{name}}
+                <h2>{{2 + 3}}</h2>
+                <h2>{{"Welcome " + name}}</h2>
+                <h2>{{name.length}}</h2>
+                <h2>{{name.toUpperCase()}}</h2>
+                <h2>{{geetUser()}}</h2>
+
+                <h1>things which we can't do</h1>
+                can not use global javascript variable
+                <h2>window.location.href</h2>
+                if we want then
+                <h2>{{siteUrl}}</h2>
+                <!--<h2>{{a = 2}}</h2>-->
+
+                
+            </div>`,
   // 2 ways for style 1. inline stlye 2. styleUrls
   // styleUrls: ['./test.component.css']
   styles: [`
     div {
-      color : blue
+      color : black
     }
   `]
 })
 export class TestComponent implements OnInit {
 
+  public name = "Ravi Pandya!"
+  public siteUrl = window.location.href
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  geetUser(){
+    return "Hello Greet"
   }
 
 }
