@@ -26,6 +26,16 @@ import { Component, OnInit } from '@angular/core';
                 <h2>{{siteUrl}}</h2>
                 <!--<h2>{{a = 2}}</h2>-->
 
+                <h1>Property binding</h1>
+                <input [id]="myId" type="text" value="Ravi" />
+                <input [disabled]="isDisabled" [id]="myId" type="text" value="Ravi" />
+                <input bind-disabled="isDisabled" [id]="myId" type="text" value="Ravi" />
+                <-- Interpolation will also work only for string. for boolean like disabled it will not work-->
+                <input id="{{myId}}" type="text" value="Ravi" />
+                <!--if this input is first property and in chrome console if we use
+                $0.getAttribute('value') - will get "Ravi" and $0.value will also return same
+                but if we change content in text and again hit both - then $0.getAttribute('value')
+                still returns old value while $0.value returns updated value -->
                 
             </div>`,
   // 2 ways for style 1. inline stlye 2. styleUrls
@@ -40,6 +50,8 @@ export class TestComponent implements OnInit {
 
   public name = "Ravi Pandya!"
   public siteUrl = window.location.href
+  public myId = "testId"
+  public isDisabled = true
   constructor() { }
 
   ngOnInit(): void {
