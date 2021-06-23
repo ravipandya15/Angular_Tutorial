@@ -22,6 +22,12 @@ import { Component, OnInit } from '@angular/core';
               <button (click)="onClick($event)">Greet</button>
               <button (click)="greeting = 'Welcome from Greet 2'">Greet 2</button>
               {{greeting}}
+
+              <h1>Template Referance variable</h1>
+              <input #myInput type="text" />
+              <button (click)="onTemplateReferanceVariable(myInput.value)">
+                  Template referance variable
+              </button>
               `,
   styles: [`
   .text-success {
@@ -58,6 +64,10 @@ export class BindingsComponent implements OnInit {
   onClick(event : any){
     console.log("Welcome to Angular Tutorial")
     this.greeting = "Event is " + event.type + " Event."
+  }
+
+  onTemplateReferanceVariable(value : any){
+    console.log(value)
   }
 
 }
