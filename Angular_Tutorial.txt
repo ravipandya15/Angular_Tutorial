@@ -1,1 +1,4 @@
 Hii this is angular tutorial
+
+Angular is having modular approach.
+main.ts -> root module -> root component
