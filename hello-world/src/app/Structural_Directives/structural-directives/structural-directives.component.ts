@@ -33,7 +33,11 @@ import { Component, OnInit } from '@angular/core';
       <h3 *ngSwitchCase="'green'">You picked Green Color</h3>
       <h3 *ngSwitchDefault>Pick Again</h3>
     </div>
-    
+
+    <h2>ngFor directive</h2>
+    <div *ngFor="let color of colors; index as i; first as f; last as l; odd as o; even as e">
+      <h3>{{i}} : {{f}} : {{l}} : {{o}} : {{e}} :{{color}}</h3>
+    </div>
   `,
   styleUrls: ['./structural-directives.component.css']
 })
@@ -42,6 +46,7 @@ export class StructuralDirectivesComponent implements OnInit {
   public displayName = false
   public displayName2 = false
   public color = "orange";
+  public colors = ["red", "blue", "green", "yellow"];
   constructor() { }
 
   ngOnInit(): void {
