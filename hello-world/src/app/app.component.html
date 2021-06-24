@@ -12,6 +12,15 @@
   <!-- 2nd way -->
   <!-- <app-component-interaction (childEvent)="executeEvent($event)" [parentData]="name"></app-component-interaction>  -->
   <!-- <app-pipes-example></app-pipes-example> -->
-  <app-employee-list></app-employee-list>
-  <app-employee-detail></app-employee-detail>
+  <!-- <app-employee-list></app-employee-list>
+  <app-employee-detail></app-employee-detail> -->
+  <nav>
+    <!-- whatever CSS class we want to apply to this routing
+       anchor tag, can apply in routerLinkActive -->
+       <!-- so routerLinkActive just usefull to apply css class.
+      NOTE : here we are not having CSS classnamed active  -->
+    <a routerLink="departments" routerLinkActive="active">Departments</a>
+    <a routerLink="employees" routerLinkActive="active">Employees</a>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
