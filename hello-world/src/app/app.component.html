@@ -5,5 +5,10 @@
   <!-- <div app-test></div> -->
 
   <!-- <app-bindings></app-bindings> -->
-  <app-structural-directives></app-structural-directives>
+  <!-- <app-structural-directives></app-structural-directives> -->
+  <h1>{{childName}}</h1>
+  <!-- 1st way -->
+  <!-- <app-component-interaction (childEvent)="childName=$event" [parentData]="name"></app-component-interaction>-->
+  <!-- 2nd way -->
+  <app-component-interaction (childEvent)="executeEvent($event)" [parentData]="name"></app-component-interaction> 
 </div>

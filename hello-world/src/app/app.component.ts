@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hello-world';
+  public name = "Ravi Pandya"
+  public childName = "";
+
+  executeEvent(message : any){
+    this.childName = message;
+  }
 }

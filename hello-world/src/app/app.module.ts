@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { BindingsComponent } from './bindings/bindings.component';
 import { FormsModule } from '@angular/forms';
-import { StructuralDirectivesComponent } from './Structural_Directives/structural-directives/structural-directives.component'
+import { StructuralDirectivesComponent } from './Structural_Directives/structural-directives/structural-directives.component';
+import { ComponentInteractionComponent } from './component-interaction/component-interaction.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     BindingsComponent,
-    StructuralDirectivesComponent
+    StructuralDirectivesComponent,
+    ComponentInteractionComponent
   ],
   imports: [
     BrowserModule,
