@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { BindingsComponent } from './bindings/bindings.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { StructuralDirectivesComponent } from './Structural_Directives/structural-directives/structural-directives.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    BindingsComponent
+    BindingsComponent,
+    StructuralDirectivesComponent
   ],
   imports: [
     BrowserModule,
