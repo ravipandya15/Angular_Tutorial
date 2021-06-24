@@ -8,7 +8,10 @@ import { BindingsComponent } from './bindings/bindings.component';
 import { FormsModule } from '@angular/forms';
 import { StructuralDirectivesComponent } from './Structural_Directives/structural-directives/structural-directives.component';
 import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
-import { PipesExampleComponent } from './pipes-example/pipes-example.component'
+import { PipesExampleComponent } from './pipes-example/pipes-example.component';
+import { EmployeeListComponent } from './Services/employee-list/employee-list.component';
+import { EmployeeDetailComponent } from './Services/employee-detail/employee-detail.component'
+import { EmployeeServiceService } from './Services/employee-service.service';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,16 @@ import { PipesExampleComponent } from './pipes-example/pipes-example.component'
     BindingsComponent,
     StructuralDirectivesComponent,
     ComponentInteractionComponent,
-    PipesExampleComponent
+    PipesExampleComponent,
+    EmployeeListComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
