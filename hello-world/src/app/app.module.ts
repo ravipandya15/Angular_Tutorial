@@ -12,6 +12,7 @@ import { PipesExampleComponent } from './pipes-example/pipes-example.component';
 import { EmployeeListComponent } from './Services/employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './Services/employee-detail/employee-detail.component'
 import { EmployeeServiceService } from './Services/employee-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EmployeeServiceService } from './Services/employee-service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [EmployeeServiceService],
   bootstrap: [AppComponent]

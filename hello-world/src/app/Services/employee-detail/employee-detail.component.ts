@@ -18,7 +18,9 @@ export class EmployeeDetailComponent implements OnInit {
 
   // ngOnit will load only once for component
   ngOnInit(): void {
-    this.employeeList = this._employeeService.getEmployees();
+    // this.employeeList = this._employeeService.getEmployees();
+    this._employeeService.getEmployees()
+          .subscribe(data => this.employeeList = data);
   }
 
 }
