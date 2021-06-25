@@ -2,3 +2,9 @@ Hii this is angular tutorial
 
 Angular is having modular approach.
 main.ts -> root module -> root component
+
+lazy loaded modules and egerly loadded modules is left.
+
+providedIn : root vs providedIn: any - difference left.
+
+creating custom pipes in Angular - left.
