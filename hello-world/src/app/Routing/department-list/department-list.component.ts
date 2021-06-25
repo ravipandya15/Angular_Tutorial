@@ -38,7 +38,11 @@ export class DepartmentListComponent implements OnInit {
 
   onSelect(department : any) : any{
     // ['/departments', department.id] is knows as Link parameters array
-    this.router.navigate(['/departments', department.id])
+    // this.router.navigate(['/departments', department.id])
+
+    // relative navigation
+    // besically tells that just add department id to the previous path
+    this.router.navigate([department.id], {relativeTo:this.route})
   }
 
   isSelected(department : any) : boolean{

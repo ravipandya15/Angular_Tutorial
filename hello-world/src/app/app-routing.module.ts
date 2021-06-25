@@ -14,9 +14,14 @@ const routes: Routes = [
   // if we use prefix then empth string '' is prefix to every string. so it will not work.
   // full says if path is empty as full means localhost:4200 then redirects to departments root.
   // known as refirecting routes
-  {path: '', redirectTo:'departments', pathMatch: 'full'},
-  {path: 'departments', component: DepartmentListComponent},
-  {path: 'departments/:id', component: DepartmentDetailComponent},
+
+  // relative navigation
+  // suppose in future if there in a need to change department to department-list
+  // we need to change in this file 3 changes and in all files where we use departments
+  // to overcome use relative navigation
+  {path: '', redirectTo:'department', pathMatch: 'full'},
+  {path: 'department', component: DepartmentListComponent},
+  {path: 'department/:id', component: DepartmentDetailComponent},
   {path: 'employees', component: EmployeeListComponent}, // it's inside rounting folder. not in Service folder.
   {path: '**', component: NotFoundComponent} // this is default route(also known as wildcard route) and it will match with every route so make sure that default root must be the last one. of it is the first one then for any route, it will redirect to default root.
 ];
