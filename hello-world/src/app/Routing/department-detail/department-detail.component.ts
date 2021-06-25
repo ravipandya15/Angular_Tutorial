@@ -5,8 +5,16 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
   selector: 'app-department-detail',
   template: `
     <h3>You selected departmentId = {{departmentId}}</h3>
-    <a (click)='goPrevious()'>Previous</a>
-    <a (click)='goNext()'>Next</a>
+    <p>
+      <button (click)='goPrevious()'>Previous</button>
+      <button (click)='goNext()'>Next</button>
+    </p>
+
+    <p>
+      <button (click)="redirectToOverview()">Overview</button>
+      <button (click)="redirectToContact()">Contact</button>
+    </p>
+    <router-outlet></router-outlet>
 
     <div>
       <button (click)="goToDepartments()">Back</button>
@@ -67,6 +75,14 @@ export class DepartmentDetailComponent implements OnInit {
     // tells just bo back one step - for department/id to department and then
     // add {id:selectedId} -  optional route
     this.router.navigate(['../', {id:selectedId}], {relativeTo:this.route});
+  }
+
+  redirectToOverview() : any{
+    this.router.navigate(['overview'], {relativeTo:this.route});
+  }
+
+  redirectToContact() : any{
+    this.router.navigate(['contact'], {relativeTo: this.route});
   }
 
 }
