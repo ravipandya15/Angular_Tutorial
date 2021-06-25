@@ -15,6 +15,7 @@ import { EmployeeServiceService } from './Services/employee-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DepartmentListComponent } from './Routing/department-list/department-list.component';
 import { NotFoundComponent } from './Routing/not-found/not-found.component';
+import { DepartmentDetailComponent } from './Routing/department-detail/department-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NotFoundComponent } from './Routing/not-found/not-found.component';
     EmployeeListComponent,
     EmployeeDetailComponent,
     DepartmentListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DepartmentDetailComponent
   ],
   imports: [
     BrowserModule,
