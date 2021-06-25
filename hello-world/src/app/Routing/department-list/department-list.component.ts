@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
   template: `
   <h2>Department List</h2>
     <ul>
-      <li (click)='onSelect(department)' *ngFor="let department of departmentList">
+      <li (click)='onSelect(department)' [style.color]="isSelected(department) ? 'red' : 'black'" *ngFor="let department of departmentList">
         <h3>{{department.id}}:{{department.name}}</h3>
       </li>
     </ul>
@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class DepartmentListComponent implements OnInit {
 
+  public selectedId : any;
   departmentList:any = [
     {'id':1, 'name': 'Angular'},
     {'id':2, 'name': 'Vue'},
@@ -25,13 +26,26 @@ export class DepartmentListComponent implements OnInit {
     {'id':6, 'name': 'SQL'},
   ];
 
-  constructor(private router : Router) { }
+  constructor(private router : Router,
+              private route : ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params : ParamMap)=> {
+      let id = params.get('id');
+      this.selectedId = id;
+    });
   }
 
-  onSelect(department : any): any{
-    this.router.navigate(['departments', department.id])
+  onSelect(department : any) : any{
+    // ['/departments', department.id] is knows as Link parameters array
+    this.router.navigate(['/departments', department.id])
+  }
+
+  isSelected(department : any) : boolean{
+    return department.id == this.selectedId;
+    // ideally it should be === to check value and type.
+    // but we are having issues in type so == is written.
+    // return department.id === this.selectedId;
   }
 
 }
