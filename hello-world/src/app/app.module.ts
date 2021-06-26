@@ -41,6 +41,8 @@ import { DepartmentcontactComponent } from './Routing/departmentcontact/departme
     FormsModule,
     HttpClientModule
   ],
+  // in service as providedIn : root or in providers array.
+  // any one of them is OK.
   providers: [EmployeeServiceService],
   bootstrap: [AppComponent]
 })
