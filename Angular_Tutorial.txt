@@ -8,3 +8,10 @@ lazy loaded modules and egerly loadded modules is left.
 providedIn : root vs providedIn: any - difference left.
 
 creating custom pipes in Angular - left.
+ 
+ViewChild - left
+
+component life cycle hooks method - left
+
+
+Angular Component Interaction 14 videos series is left
