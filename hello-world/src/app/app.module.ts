@@ -18,6 +18,7 @@ import { NotFoundComponent } from './Routing/not-found/not-found.component';
 import { DepartmentDetailComponent } from './Routing/department-detail/department-detail.component';
 import { DepartmentoverviewComponent } from './Routing/departmentoverview/departmentoverview.component';
 import { DepartmentcontactComponent } from './Routing/departmentcontact/departmentcontact.component';
+import { TemplateFormComponent } from './Forms/template-driven/template-form/template-form.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DepartmentcontactComponent } from './Routing/departmentcontact/departme
     NotFoundComponent,
     DepartmentDetailComponent,
     DepartmentoverviewComponent,
-    DepartmentcontactComponent
+    DepartmentcontactComponent,
+    TemplateFormComponent
   ],
   imports: [
     BrowserModule,
