@@ -24,4 +24,24 @@ export class ReactiveFormComponent implements OnInit {
     })
   });
 
+  loadApiData(){
+    // it's required to set all value to setValue method but if we want to pass only few items, use patch value
+    // this.registrationForm.setValue({
+    //   userName : 'Kavyansh',
+    //   password : 'Test',
+    //   confirmPassword : 'Test',
+    //   // address: {
+    //   //   city : 'Surat',
+    //   //   state : 'Gujarat',
+    //   //   postalCode : '395009'
+    //   // }
+    // })
+
+    this.registrationForm.patchValue({
+      userName : 'Kavyansh',
+      password : 'Test',
+      confirmPassword : 'Test'
+    })
+  }
+
 }
