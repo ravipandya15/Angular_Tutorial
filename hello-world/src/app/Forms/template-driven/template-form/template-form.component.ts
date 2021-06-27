@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-template-form',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateFormComponent implements OnInit {
 
   topics = ['Angular', 'Vue', 'React'];
+
+  userModel = new User('Ravi','rpandya@hhaexchange.com',8511165331, '', 'morning', true);
   constructor() { }
 
   ngOnInit(): void {
