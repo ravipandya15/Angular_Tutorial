@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EnrollmentService } from '../enrollment.service';
 import { User } from '../user';
 
 @Component({
@@ -12,7 +13,7 @@ export class TemplateFormComponent implements OnInit {
   topicHasError : boolean = true;
 
   userModel = new User('','rpandya@hhaexchange.com',8511165331, 'default', 'morning', true);
-  constructor() { }
+  constructor(private enrollmentService : EnrollmentService) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,11 @@ export class TemplateFormComponent implements OnInit {
     }
 
     //this.topicHasError = topicValue === "default" ? true : false;
+  }
+
+  onSubmit(){
+    console.log(this.userModel)
+    this.enrollmentService.enroll(this.userModel);
   }
 
 }
