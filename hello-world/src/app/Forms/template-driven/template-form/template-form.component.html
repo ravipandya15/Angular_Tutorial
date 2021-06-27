@@ -56,11 +56,25 @@
         </div>
         <br />
 
-        <div class="form-group">
-            <select class="form-control" [(ngModel)]='userModel.topic' name="topic">
-                <option value="">Im am intrested in</option>
+        <!-- this will only work if default text has value = "" -->
+        <!-- <div class="form-group">
+            <select class="form-control" #topic="ngModel" [class.is-invalid]="topic.invalid && topic.touched" 
+            required [(ngModel)]='userModel.topic' name="topic">
+                <option value="">I am intrested in</option>
                 <option *ngFor='let topic of topics'>{{ topic }}</option>
             </select>
+            <small [class.d-none]="topic.valid || topic.untouched">please choose a topic</small>
+        </div> -->
+
+        <!-- blur means when we navigate from one input field to other. -->
+        <div class="form-group">
+            <select class="form-control" (blur)="validateTopic(topic.value)" (change)="validateTopic(topic.value)" 
+            #topic="ngModel" [class.is-invalid]="topicHasError && topic.touched" 
+            required [(ngModel)]='userModel.topic' name="topic">
+                <option value="default">I am intrested in</option>
+                <option *ngFor='let topic of topics'>{{ topic }}</option>
+            </select>
+            <small [class.d-none]="!topicHasError || topic.untouched">please choose a topic</small>
         </div>
         <br />
 
