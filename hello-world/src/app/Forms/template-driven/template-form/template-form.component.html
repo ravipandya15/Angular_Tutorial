@@ -22,11 +22,12 @@
             <!-- <input type="text" class="form-control" required #name [(ngModel)]='userModel.name' name="userName">
             {{ name.className }} -->
 
-            <!-- #name="ngModel" is used because Angular provides property
+            <!-- #name="ngModel" is used because Angular provides ngModel properties
             for all classes like ng-dirty(className) - dirty(property) -->
-            <!-- to use those property we need a reference of ngModel and to get rederence of 
-            ngModel we use #name = "ngModel" -->
-            <input type="text" class="form-control" required #name="ngModel" [(ngModel)]='userModel.name' name="userName">
+            <!-- to use those property we need a reference of ngModel  directive and to get 
+            rederence of ngModel directive we use #name = "ngModel" -->
+            <input type="text" [class.is-invalid]="name.invalid && name.touched" class="form-control is-invalid" 
+                    required #name="ngModel" [(ngModel)]='userModel.name' name="userName">
             {{ name.untouched }}
             {{ name.touched }}
             {{ name.pristine }}
@@ -42,7 +43,8 @@
 
         <div class="form-group">
             <label>Phone</label>
-            <input type="tel" class="form-control" [(ngModel)]='userModel.phone' name="phone">
+            <input type="tel" #phone="ngModel" pattern="^\d{10}$" class="form-control" 
+            [class.is-invalid]="phone.invalid && phone.touched" [(ngModel)]='userModel.phone' name="phone">
         </div>
         <br />
 
