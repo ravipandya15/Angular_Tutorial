@@ -19,6 +19,7 @@ import { DepartmentDetailComponent } from './Routing/department-detail/departmen
 import { DepartmentoverviewComponent } from './Routing/departmentoverview/departmentoverview.component';
 import { DepartmentcontactComponent } from './Routing/departmentcontact/departmentcontact.component';
 import { TemplateFormComponent } from './Forms/template-driven/template-form/template-form.component';
+import { ReactiveFormComponent } from './Forms/reactive-forms/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { TemplateFormComponent } from './Forms/template-driven/template-form/tem
     DepartmentDetailComponent,
     DepartmentoverviewComponent,
     DepartmentcontactComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
