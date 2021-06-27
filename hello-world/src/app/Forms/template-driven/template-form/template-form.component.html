@@ -17,7 +17,22 @@
             <!-- so total 3 directives to bind data in template driven forms -->
 
             <!-- ngModel will be replaced by [ngModel]='userName' [] for property binding -->
-            <input type="text" class="form-control" [(ngModel)]='userModel.name' name="userName">
+
+            <!-- #name to get all className for trackinf state and validity -->
+            <!-- <input type="text" class="form-control" required #name [(ngModel)]='userModel.name' name="userName">
+            {{ name.className }} -->
+
+            <!-- #name="ngModel" is used because Angular provides property
+            for all classes like ng-dirty(className) - dirty(property) -->
+            <!-- to use those property we need a reference of ngModel and to get rederence of 
+            ngModel we use #name = "ngModel" -->
+            <input type="text" class="form-control" required #name="ngModel" [(ngModel)]='userModel.name' name="userName">
+            {{ name.untouched }}
+            {{ name.touched }}
+            {{ name.pristine }}
+            {{ name.dirty }}
+            {{ name.valid }}
+            {{ name.invalid }}
         </div>
 
         <div class="form-group">
