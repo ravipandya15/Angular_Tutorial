@@ -28,6 +28,8 @@
             rederence of ngModel directive we use #name = "ngModel" -->
             <input type="text" [class.is-invalid]="name.invalid && name.touched" class="form-control is-invalid" 
                     required #name="ngModel" [(ngModel)]='userModel.name' name="userName">
+            <small class="text-danger" [class.d-none] = "name.valid || name.untouched">Name is required</small>
+            <br />
             {{ name.untouched }}
             {{ name.touched }}
             {{ name.pristine }}
@@ -43,8 +45,14 @@
 
         <div class="form-group">
             <label>Phone</label>
-            <input type="tel" #phone="ngModel" pattern="^\d{10}$" class="form-control" 
+            <input type="tel" #phone="ngModel" pattern="^\d{10}$" class="form-control"  required
             [class.is-invalid]="phone.invalid && phone.touched" [(ngModel)]='userModel.phone' name="phone">
+            <!-- <small class="text-danger" [class.d-none] = "phone.valid || phone.untouched">phone number is required must be 10 digits</small> -->
+            <!-- i think phone.errors && (phone.invalid || phone.touched) is also valid -->
+            <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                <small class="text-danger" *ngIf="phone.errors.required">phone number is required.</small>
+                <small class="text-danger" *ngIf="phone.errors.pattern">phone number must be 10 digits.</small>
+            </div>
         </div>
         <br />
 
