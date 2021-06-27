@@ -12,6 +12,7 @@ export class TemplateFormComponent implements OnInit {
   topics : string[] = ['Angular', 'Vue', 'React'];
   topicHasError : boolean = true;
   submitted = false;
+  errorMessage = '';
 
   userModel = new User('','rpandya@hhaexchange.com',8511165331, 'default', 'morning', true);
   constructor(private enrollmentService : EnrollmentService) { }
@@ -36,7 +37,7 @@ export class TemplateFormComponent implements OnInit {
     this.enrollmentService.enroll(this.userModel)
         .subscribe(
             data => console.log("success!", data),
-            error => console.log('Error!', error)
+            error => this.errorMessage = error.statusText
         )
   }
 
