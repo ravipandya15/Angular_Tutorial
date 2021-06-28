@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PasswordValidator } from '../../shared/password.validator';
 import { forbiddenNameValidator } from '../../shared/user-name.validator';
 
 @Component({
@@ -35,7 +36,7 @@ export class ReactiveFormComponent implements OnInit {
       state : [''],
       postalCode : [''],
     })
-  });
+  }, { validator : PasswordValidator});
 
   //getter method to get userName
   get userName(){
