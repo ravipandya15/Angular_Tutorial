@@ -4,6 +4,7 @@ Angular is having modular approach.
 main.ts -> root module -> root component
 
 lazy loaded modules and egerly loadded modules is left.
+lazy loaded components and egerly loadded components is left.
 
 providedIn : root vs providedIn: any - difference left.
 
@@ -15,3 +16,5 @@ component life cycle hooks method - left
 
 
 Angular Component Interaction 14 videos series is left
+
+"strictNullChecks": false if required

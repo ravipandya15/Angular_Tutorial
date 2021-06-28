@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,21 +8,38 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
 
-  constructor() { }
+  // formBilder is a service
+  constructor(private fb : FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  registrationForm = new FormGroup({
-    userName : new FormControl('Ravi Pandya'),
-    password : new FormControl(''),
-    confirmPassword : new FormControl(''),
-    address : new FormGroup({
-      city : new FormControl(''),
-      state : new FormControl(''),
-      postalCode : new FormControl(''),
+  // registrationForm = new FormGroup({
+  //   userName : new FormControl('Ravi Pandya'),
+  //   password : new FormControl(''),
+  //   confirmPassword : new FormControl(''),
+  //   address : new FormGroup({
+  //     city : new FormControl(''),
+  //     state : new FormControl(''),
+  //     postalCode : new FormControl(''),
+  //   })
+  // });
+
+  registrationForm = this.fb.group({
+    userName : ['', [Validators.required, Validators.minLength(3)]],
+    password : [''],
+    confirmPassword : [''],
+    address : this.fb.group({
+      city : [''],
+      state : [''],
+      postalCode : [''],
     })
   });
+
+  //getter method to get userName
+  get userName(){
+    return this.registrationForm.get('userName');
+  }
 
   loadApiData(){
     // it's required to set all value to setValue method but if we want to pass only few items, use patch value
