@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { PasswordValidator } from '../../shared/password.validator';
 import { forbiddenNameValidator } from '../../shared/user-name.validator';
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-reactive-form',
@@ -12,7 +13,7 @@ export class ReactiveFormComponent implements OnInit {
   // registrationForm : FormGroup;
   
   // formBilder is a service
-  constructor(private fb : FormBuilder) { }
+  constructor(private fb : FormBuilder, private registrationService : RegistrationService) { }
 
   //getter method to get userName
   get userName(){
@@ -90,6 +91,15 @@ export class ReactiveFormComponent implements OnInit {
       password : 'Test',
       confirmPassword : 'Test'
     })
+  }
+
+  onSubmit(){
+    console.log(this.registrationForm.value)
+    this.registrationService.register(this.registrationForm.value)
+        .subscribe(
+          response => console.log("Success!", response),
+          error => console.error("Error!", error)
+        );
   }
 
 }
